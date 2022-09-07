@@ -78,21 +78,21 @@ inquirer.prompt([
 // TODO: Create a function to write README file
     ]).then(answers => {
 
-    fs.writeToFile("./README FILE GENERATOR/output/test.md'", "# Markdown \n" , `# ${title} # Table of Contents ${toc}
+    fs.writeToFile("./README FILE GENERATOR/output/test.md'", "# Markdown \n" , `# ${answers.title} # Table of Contents ${answers.toc}
     # Description \n
-    ${description}
+    ${answers.description}
     # Installation \n
-    ${installation}
+    ${answers.installation}
     # Usage \n
-    ${usage}
+    ${answers.usage}
     # Collaborators \n
-    ${credits}
+    ${answers.credits}
     #License \n
-    ${license}
+    ${answers.license}
     #GitHub \n
-    ${git}
+    ${answers.git}
     #email \n
-    ${email}`), 
+    ${answers.email}`), 
     
     (err) => {
         if(err) console.error(err)
@@ -136,4 +136,6 @@ function init() {
 
 // Function call to initialize app
 init();
+
+
 

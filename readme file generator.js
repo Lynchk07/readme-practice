@@ -3,9 +3,9 @@
 function renderLicenseBadge (license){
     if(license === "MIT License"){
           return "[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"}
-        else if(license ==="Apache License"){
+        else if(license === "Apache License"){
           return"[![Apache License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"}
-        else if (license ==="GNU License") 
+        else if (license === "GNU License") 
           return{"[![GNU License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
   }
 }
@@ -20,10 +20,10 @@ function renderLicenseBadge (license){
   
   // TODO: Create a function to generate markdown for README
 
-  module.exports = function (data){
-    return `# ${data.name}
-    ${renderLicenseBadge (data.license)}
-    # ${data.title} 
+  module.exports = function (answers){
+    return `# ${answers.name}
+    ${renderLicenseBadge (answers.license)}
+    # ${answers.title} 
     # Table of Contents 
     *[Description](#description)
     *[Installation](#installation)
@@ -31,15 +31,17 @@ function renderLicenseBadge (license){
     *[Test](#test)
     
     # Description \n
-    ${data.description}
+    ${answers.description}
     # Installation \n
-    ${data.installation}
+    ${answers.installation}
     # Usage \n
-    ${data.usage}
+    ${answers.usage}
     # Collaborators \n
-    ${data.credits}
+    ${answers.credits}
     #GitHub \n
-    [github link] (https/github.com/${data.git})
+    [github link] (https/github.com/${answers.git})
     #email \n
-    ${email}`
+    ${answers.email}`
   }
+ 
+ 

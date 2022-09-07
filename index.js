@@ -3,7 +3,8 @@ const inquirer = require('inquirer');
 
 const fs = require('fs');
 
-const readme = require('./README FILE GENERATOR/output/test.md')
+const readme = require('./README FILE GENERATOR/test.md')
+const generateMarkdown = require("./README FILE GENERATOR/mdgenerator.js")
 
 // TODO: Create an array of questions for user input
 inquirer.prompt([
@@ -78,56 +79,16 @@ inquirer.prompt([
 // TODO: Create a function to write README file
     ]).then(answers => {
 
-    fs.writeToFile("./README FILE GENERATOR/output/test.md'", "# Markdown \n" , `# ${answers.title} # Table of Contents ${answers.toc}
-    # Description \n
-    ${answers.description}
-    # Installation \n
-    ${answers.installation}
-    # Usage \n
-    ${answers.usage}
-    # Collaborators \n
-    ${answers.credits}
-    #License \n
-    ${answers.license}
-    #GitHub \n
-    ${answers.git}
-    #email \n
-    ${answers.email}`), 
+    fs.writeFile("./README FILE GENERATOR/test.md", generateMarkdown(answers), 
     
     (err) => {
         if(err) console.error(err)
       
         console.log("success")
       }
-    }
     
-    );
-
-// // TODO: Create a function to write README file
-// fs.writeFile("./output/test.md", "# Markdown" , `# ${title}\n # Table of Contents\n ${toc}
-// # Description \n
-// ${description}
-// # Installation \n
-// ${installation}
-// # Usage \n
-// ${usage}
-// # Collaborators \n
-// ${credits}
-// #License \n
-// ${license}
-// #GitHub \n
-// ${git}
-// #email \n
-// ${email}`), 
-
-// (err) => {
-//     if(err) console.error(err)
-  
-//     console.log("success")
-//   }
-
-
-
+    
+    )});
 
 // TODO: Create a function to initialize app
 function init() {
@@ -136,6 +97,5 @@ function init() {
 
 // Function call to initialize app
 init();
-
 
 

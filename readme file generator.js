@@ -4,15 +4,15 @@ function renderLicenseBadge (license){
     if(license === "MIT License"){
           return "[![MIT License](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)"}
         else if(license === "Apache License"){
-          return"[![Apache License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)"}
-        else if (license === "GNU License") 
-          return{"[![GNU License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
+          return"[![Apache License](https://img.shields.io/badge/License-Apache_2.0-blue)](https://opensource.org/licenses/Apache-2.0)"}
+        else if (license === "GNU License"){
+          return"[![GNU License](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)"
   }
 }
   
   // // TODO: Create a function that returns the license link
   // // If there is no license, return an empty string
-  // function renderLicenseLink(license) {} /// above code includes link 
+  function renderLicenseLink(license) {} /// above code includes link 
   
   // TODO: Create a function that returns the license section of README
   // If there is no license, return an empty string
@@ -20,10 +20,10 @@ function renderLicenseBadge (license){
   
   // TODO: Create a function to generate markdown for README
 
-  module.exports = function (answers){
-    return `# ${answers.name}
-    ${renderLicenseBadge (answers.license)}
-    # ${answers.title} 
+  function generateMarkdown (answers){
+    return `# ${answers.title} \n
+    ${renderLicenseBadge (answers.license)}\n
+    # ${answers.title} \n
     # Table of Contents 
     *[Description](#description)
     *[Installation](#installation)
@@ -31,17 +31,18 @@ function renderLicenseBadge (license){
     *[Test](#test)
     
     # Description \n
-    ${answers.description}
-    # Installation \n
-    ${answers.installation}
-    # Usage \n
-    ${answers.usage}
-    # Collaborators \n
-    ${answers.credits}
-    #GitHub \n
-    [github link] (https/github.com/${answers.git})
-    #email \n
-    ${answers.email}`
+    ${answers.description}\n
+    ## Installation \n
+    ${answers.installation}\n
+    ## Usage \n
+    ${answers.usage}\n
+    ## Collaborators \n
+    ${answers.credits}\n
+    ## GitHub \n
+    [github link] (https/github.com/${answers.git})\n
+    ## Email \n
+    ${answers.email}\n`
   }
  
+ module.exports = generateMarkdown
  
